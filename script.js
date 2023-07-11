@@ -7,26 +7,76 @@ const buttons = document.querySelectorAll('.buttons-container button');
 const output = document.querySelector('.output-message')
 const player = document.querySelector('.player-score');
 const computer = document.querySelector('.computer-score');
+const playAgain = document.querySelector('.button-container .play-again');
 
+// adding event listener to three buttons.
+buttons.forEach((button) => {
+    button.addEventListener('click', handleClick);
+});
 
+playAgain.addEventListener('click', clickPlayAgain);
+playAgain.addEventListener('click', showPlayAgain);
 
-// get player choice by clicking a button
-buttons.forEach((button) => {button.addEventListener('click', () => {
+playAgain.style.visibility = "hidden";
 
-    playerChoice = button.className;
-    if (playerChoice == "rock") {
+// function that will run when a click event occur.
+function handleClick() {
+    //determines player choice.
+    playerChoice = this.className;
+    if(playerChoice === "rock") {
         playerChoiceCompare = "rock";
-    } else if (playerChoice == "paper") {
+    } else if (playerChoice === "paper") {
         playerChoiceCompare = "paper";
-    } else if (playerChoice == "scissors") {
+    } else if (playerChoice === "scissors") {
         playerChoiceCompare = "scissors";
     }
-    compChoiceCompare = getComputerChoice();
-    game();
+    compChoiceCompare = getComputerChoice(); //get the computer choice by calling its function.
+    game(); //call the game logic function.
+
+    // removing event listener when score reaches 5.
+    if (playerScore === 5 || computerScore === 5) {
+        buttons.forEach((button) => {
+            button.removeEventListener('click', handleClick);
+            showPlayAgain();
+        });
+    }
+}
+
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    output.textContent = '';
+    player.textContent = `Player Score: ${playerScore}`;
+    computer.textContent = `Computer Score: ${computerScore}`;
+}
+
+function clickPlayAgain() {
+    reset();
+    buttons.forEach((button) => {
+      button.addEventListener('click', handleClick);
+    });
+    playAgain.style.visibility = "hidden";
+    playAgain.removeEventListener('click', clickPlayAgain);
+    playAgain.addEventListener('click', clickPlayAgain);
+  }
+  
+playAgain.addEventListener('click', function() {
+    clickPlayAgain();
+    playAgain.removeEventListener('click', arguments.callee);
+});
+  
+
+function showPlayAgain() {
+        playAgain.style.visibility = "visible";
+}
 
 
-    })
-})
+
+
+
+
+
+
 //get computer choice
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
