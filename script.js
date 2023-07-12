@@ -87,13 +87,6 @@ function showPlayAgain() {
         playAgain.style.visibility = "visible";
 }
 
-
-
-
-
-
-
-
 //get computer choice
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -107,6 +100,8 @@ function getComputerChoice() {
     return compChoiceCompare;
 }
 
+//game logic,
+//shows output text, add score to winner.
 function playRound() {
     if (playerChoiceCompare === compChoiceCompare) {
         output.textContent = `It's a tie! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
@@ -137,6 +132,7 @@ function playRound() {
         }
     }
 }
+
 
 function game() {  
     playRound();

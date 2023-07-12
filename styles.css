@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url('img/bg-image.jpg');
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    height: 80%;
+    width: 80%;
+    border: solid 1px black;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.game-header {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.header {
+    font-size: 90px;
+    font-weight: 900;
+    max-width: 600px;
+    line-height: 100px;
+    letter-spacing: 4px;
+}
+
+.description {
+    font-size: 19px;
+    font-style: italic;
+}
+
