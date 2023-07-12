@@ -87,6 +87,37 @@ function showPlayAgain() {
         playAgain.style.visibility = "visible";
 }
 
+//display icon of the two choices,
+//problem encountered, to show up icons next round.
+// function displayChoice(playerChoiceCompare, compChoiceCompare) {
+//     const playerChoice = document.querySelector('.player');
+//     const computerChoice = document.querySelector('.computer');
+
+//     switch (playerChoiceCompare) {
+//         case "rock":
+//             playerChoice.textContent = "✊";
+//             break;
+//         case "paper":
+//             playerChoice.textContent = "✋";
+//             break;
+//         case "scissors":
+//             playerChoice.textContent = "✌";
+//             break;
+//     }
+
+//     switch(compChoiceCompare) {
+//         case "rock":
+//             computerChoice.textContent = "✊";
+//             break;
+//         case "paper":
+//             computerChoice.textContent = "✋";
+//             break;
+//         case "scissors":
+//             computerChoice.textContent = "✌";
+//             break;
+//     }  
+// }
+
 //get computer choice
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
