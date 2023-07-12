@@ -32,8 +32,13 @@ function handleClick() {
     }
     compChoiceCompare = getComputerChoice(); //get the computer choice by calling its function.
     game(); //call the game logic function.
+    checkWinner();
 
-    // removing event listener when score reaches 5.
+}
+
+//check if a score is 5, then remove event listener to three buttons,
+//then calls the function showPlayAgain() to display play again button.
+function checkWinner() {
     if (playerScore === 5 || computerScore === 5) {
         buttons.forEach((button) => {
             button.removeEventListener('click', handleClick);
@@ -42,30 +47,40 @@ function handleClick() {
     }
 }
 
+//resets everything, this function is called when play again button is clicked.
 function reset() {
+    if (computerScore === 5) {
+        output.textContent = "I see you don't like giving up, here's another chance!";
+    } else if (playerScore === 5) {
+        output.textContent = "Wow, you're really proving something!";
+    }
+
     playerScore = 0;
     computerScore = 0;
-    output.textContent = '';
     player.textContent = `Player Score: ${playerScore}`;
     computer.textContent = `Computer Score: ${computerScore}`;
 }
 
+//this function handles the logic when play again button is clicked.
 function clickPlayAgain() {
     reset();
+
     buttons.forEach((button) => {
       button.addEventListener('click', handleClick);
     });
+
     playAgain.style.visibility = "hidden";
     playAgain.removeEventListener('click', clickPlayAgain);
     playAgain.addEventListener('click', clickPlayAgain);
-  }
-  
+}
+
+//
 playAgain.addEventListener('click', function() {
     clickPlayAgain();
     playAgain.removeEventListener('click', arguments.callee);
 });
   
-
+//sets play again button to be visible, this function is called in the handleClick function.
 function showPlayAgain() {
         playAgain.style.visibility = "visible";
 }
