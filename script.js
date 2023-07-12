@@ -75,10 +75,12 @@ function clickPlayAgain() {
 }
 
 //
-playAgain.addEventListener('click', function() {
+function playAgainClickHandler() {
     clickPlayAgain();
-    playAgain.removeEventListener('click', arguments.callee);
-});
+    playAgain.removeEventListener('click', playAgainClickHandler);
+}
+
+playAgain.addEventListener('click', playAgainClickHandler);
   
 //sets play again button to be visible, this function is called in the handleClick function.
 function showPlayAgain() {
