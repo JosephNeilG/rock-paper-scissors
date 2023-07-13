@@ -21,6 +21,9 @@ body {
     border-radius: 15px;
     align-content: center;
     flex-wrap: wrap;
+    row-gap: 40px;
+    margin: 0 50px;
+    padding: 0 35px;
 }
 
 .left-container {
@@ -63,16 +66,18 @@ body {
     display: flex;
     justify-content: center;
     margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: 24px;
+
 }
 
 .score-counter {
     display: flex;
     justify-content: space-evenly;
-    font-size: 18px;
+    font-size: 19px;
     letter-spacing: 1px;
     color: #afaeae;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 .buttons-container {

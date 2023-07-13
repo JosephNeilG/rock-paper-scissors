@@ -8,6 +8,9 @@ const output = document.querySelector('.output-message')
 const player = document.querySelector('.player-score');
 const computer = document.querySelector('.computer-score');
 const playAgain = document.querySelector('.button-container .play-again');
+const lostAudio = new Audio("sfx/lost.wav");
+const wonAudio = new Audio("sfx/won.wav");
+const drawAudio = new Audio("sfx/draw.wav");
 
 // adding event listener to three buttons.
 buttons.forEach((button) => {
@@ -135,31 +138,45 @@ function getComputerChoice() {
 //shows output text, add score to winner.
 function playRound() {
     if (playerChoiceCompare === compChoiceCompare) {
-        output.textContent = `It's a tie! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+        output.textContent = `It's a tie!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+        drawAudio.currentTime = 0;
+        drawAudio.play();
     } else if (playerChoiceCompare === "rock") {
         if (compChoiceCompare === "scissors") {
-            output.textContent = `You won! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+            output.textContent = `You won!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
             playerScore++;
+            wonAudio.currentTime = 0;
+            wonAudio.play();
             
         } else {
-            output.textContent = `You lost! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
-            computerScore++;
+            output.textContent = `You lost!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+            computerScore++;     
+            lostAudio.currentTime = 0;
+            lostAudio.play();
         }
     } else if (playerChoiceCompare === "paper") {
         if (compChoiceCompare === "rock") {
-            output.textContent = `You won! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+            output.textContent = `You won!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
             playerScore++
+            wonAudio.currentTime = 0;    
+            wonAudio.play();
         } else {
-            output.textContent = `You lost! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
-            computerScore++;
+            output.textContent = `You lost!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+            computerScore++;    
+            lostAudio.currentTime = 0;
+            lostAudio.play();
         }
     } else if (playerChoiceCompare === "scissors") {
         if (compChoiceCompare === "rock") {
-            output.textContent = `You lost! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
-            computerScore++;
+            output.textContent = `You lost!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+            computerScore++;    
+            lostAudio.currentTime = 0;
+            lostAudio.play();
         } else {
-            output.textContent = `You won! You chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
+            output.textContent = `You won!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;
             playerScore++;
+            wonAudio.currentTime = 0; 
+            wonAudio.play();
         }
     }
 }
