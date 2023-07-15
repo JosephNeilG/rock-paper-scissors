@@ -136,6 +136,7 @@ function getComputerChoice() {
 
 //game logic,
 //shows output text, add score to winner.
+//sfx to win lose or tie round.
 function playRound() {
     if (playerChoiceCompare === compChoiceCompare) {
         output.textContent = `It's a tie!\nYou chose ${playerChoiceCompare} and computer chose ${compChoiceCompare}.`;

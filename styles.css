@@ -109,7 +109,7 @@ body {
 }
 
 .output-message {
-    font-size: 20px;
+    font-size: 23px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -139,18 +139,4 @@ body {
 
 .play-again:active {
     background-color: #181818;
-}
-
-.display-choice {
-    color: #afaeae;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 60px;
-    padding-bottom: 20px;
-
-}
-
-.round-result {
-    color: #afaeae;
-    text-align: center;
 }
