@@ -8,7 +8,7 @@
  - basic DOM Manipulation.  
  - use of event listeners (adding, removing).  
 
- <h3>Things I might add
+ ### Things I might add
  - display the icon of the player, and computer's choice instead of  just a string.  
 
  ### Reflection: things to improve
